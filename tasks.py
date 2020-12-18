@@ -19,9 +19,9 @@ app.conf.beat_schedule = {
 
 @app.task(time_limit=60)
 def demo():
-    queue = [i for i in range(7500)]
+    queue = [i for i in range(13000)]
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=400) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
         executor.map(make_request, queue)
 
 

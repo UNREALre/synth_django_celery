@@ -18,6 +18,7 @@ def load_heavy_data():
 
 
 class SynthTest(views.APIView):
+
     def get(self, request):
         sleep(random())
 
@@ -26,7 +27,7 @@ class SynthTest(views.APIView):
         f.write(f'pid #{pid}, thread #{threading.get_ident()} - {request.GET.get("id")} - beat ...\n')
         f.close()
 
-        load_heavy_data()
+        # load_heavy_data()
 
         data = {"answer": f"processed request #{request.GET.get('id')}"}
         return Response(data)
